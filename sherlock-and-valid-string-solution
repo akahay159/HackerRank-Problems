@@ -1,0 +1,22 @@
+def isValid(s):
+    d = {}
+    for i in s:
+        if i in d:
+            d[i] += 1
+        else:
+            d[i] = 1
+
+    l = []
+    for i in d:
+        l.append(d[i])
+    
+    if max(l) == min(l):
+        return 'YES'
+    elif max(l) == 1 + min(l) and l.count(min(l)) == 1:
+        return 'YES'
+    elif min(l) == max(l) - 1 and l.count(max(l)) == 1:
+        return 'YES'
+    elif min(l) == 1 and l.count(max(l)) == len(l) - 1:
+        return 'YES'
+    else:
+        return 'NO'
